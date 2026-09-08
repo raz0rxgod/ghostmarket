@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: #07070a;
+    color: #f4f4f6;
+  }
+
+  ::selection {
+    background: rgba(139, 92, 246, 0.35);
+    color: #fff;
+  }
+
+  * {
+    scrollbar-color: rgba(139, 92, 246, 0.4) transparent;
+    scrollbar-width: thin;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(139, 92, 246, 0.35);
+    border-radius: 9999px;
+  }
+}
+
+@layer components {
+  /* Фиксированный фон приложения: тёмная база + мягкие цветные пятна-градиенты */
+  .app-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: -10;
+    background: #07070a;
+    overflow: hidden;
+  }
+  .app-backdrop::before,
+  .app-backdrop::after {
+    content: '';
+    position: absolute;
+    width: 60vw;
+    height: 60vw;
+    max-width: 900px;
+    max-height: 900px;
+    border-radius: 9999px;
+    filter: blur(120px);
+    opacity: 0.35;
+  }
+  .app-backdrop::before {
+    top: -15%;
+    left: -10%;
+    background: radial-gradient(circle, #8b5cf6, transparent 70%);
+  }
+  .app-backdrop::after {
+    bottom: -20%;
+    right: -10%;
+    background: radial-gradient(circle, #22d3ee, transparent 70%);
+  }
+
+  .glass-card {
+    @apply bg-white/[0.04] border border-white/[0.08] backdrop-blur-xl;
+  }
+
+  .glass-panel {
+    @apply bg-bg-surface/80 border border-white/[0.08] backdrop-blur-xl;
+  }
+
+  .text-gradient {
+    @apply bg-ghost-gradient bg-clip-text text-transparent;
+  }
+
+  .btn-gradient {
+    @apply bg-ghost-gradient text-white font-medium shadow-glow-sm transition-transform hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  .btn-ghost-outline {
+    @apply border border-white/15 text-white/90 hover:bg-white/[0.06] transition-colors;
+  }
+
+  .input-dark {
+    @apply w-full bg-white/[0.04] border border-white/10 rounded-lg px-3 py-2.5 text-sm text-white placeholder:text-white/30 outline-none transition-colors focus:border-ghost-violet/60 focus:bg-white/[0.06];
+  }
+}
