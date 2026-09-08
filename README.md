@@ -132,9 +132,8 @@ docker ps --format "table {{.Names}}\t{{.Ports}}"   # какие контейн�
 `docker compose up` откажется стартовать с ошибкой `Conflict. The container name "..." is already in use`.
 Проверьте `docker ps -a --format "{{.Names}}"` — если совпадений нет, старый проект не тронется.
 
-Проект держите в **отдельной директории**, отличной от директории МИД-проекта
-(например `/home/shop/project`, а не `/home/mid/project`) — тогда Docker Compose
-сам не перепутает автосоздаваемые сети и volumes (у них имена берутся из имени директории).
+Проект держите в отдельной директории, отличной от других проектов на сервере
+(например `/home/shop/project`, а не `/home/other-project/project`)
 
 
 
