@@ -94,7 +94,7 @@ npm run start:dev       # http://localhost:4000/api
 # 3. Frontend (в отдельном терминале)
 cd ../frontend
 npm install
-npm run dev -- -p 3002   # ⚠️ порт 3002, т.к. 3000 занят МИД-проектом — http://localhost:3002
+npm run dev -- -p 3002   # ⚠️ порт 3002, т.к. 3000 может быть занят другим проектом на сервере — http://localhost:3002
 ```
 
 ## Запуск рядом с другим проектом на той же машине
